@@ -1,15 +1,9 @@
 
-# coding: utf-8
 
-# # TensorFlow Tutorial #08
-# # Transfer Learning
-# 
-# by [Magnus Erik Hvass Pedersen](http://www.hvass-labs.org/)
-# / [GitHub](https://github.com/Hvass-Labs/TensorFlow-Tutorials) / [Videos on YouTube](https://www.youtube.com/playlist?list=PL9Hr9sNUjfsmEu1ZniY0XpHSzl5uihcXZ)
-
+#image classification using transfer learning-shubham jain
 # ## Introduction
 # 
-# We saw in the previous Tutorial #07 how to use the pre-trained Inception model for classifying images. Unfortunately the Inception model seemed unable to classify images of people. The reason was the data-set used for training the Inception model, which had some confusing text-labels for classes.
+# how to use the pre-trained Inception model for classifying images. Unfortunately the Inception model seemed unable to classify images of people. The reason was the data-set used for training the Inception model, which had some confusing text-labels for classes.
 # 
 # The Inception model is actually quite capable of extracting useful information from an image. So we can instead train the Inception model using another data-set. But it takes several weeks using a very powerful and expensive computer to fully train the Inception model on a new data-set.
 # 
@@ -489,7 +483,7 @@ plot_scatter(transfer_values_reduced, cls)
 
 # Now we will create another neural network in TensorFlow. This network will take as input the transfer-values from the Inception model and output the predicted classes for CIFAR-10 images.
 # 
-# It is assumed that you are already familiar with how to build neural networks in TensorFlow, otherwise see e.g. Tutorial #03.
+# It is assumed that you are already familiar with how to build neural networks in TensorFlow.
 
 # ### Placeholder Variables
 
@@ -937,34 +931,11 @@ print_test_accuracy(show_example_errors=True,
 
 # ## Conclusion
 # 
-# In the previous Tutorial #06 it took 15 hours on a laptop PC to train a neural network for classifying the CIFAR-10 data-set with an accuracy of about 80% on the test-set.
+#  it took 15 hours on a laptop PC to train a neural network for classifying the CIFAR-10 data-set with an accuracy of about 80% on the test-set.
 # 
-# In this tutorial we used the Inception model from Tutorial #07 to achieve a classification accuracy of about 90% on the CIFAR-10 data-set. This was done by feeding all the images from the CIFAR-10 data-set through the Inception model and caching the so-called transfer-values prior to the final classification layer. We then built another neural network that took these transfer-values as input and produced a CIFAR-10 class as output.
+# In this tutorial we used the Inception model to achieve a classification accuracy of about 90% on the CIFAR-10 data-set. This was done by feeding all the images from the CIFAR-10 data-set through the Inception model and caching the so-called transfer-values prior to the final classification layer. We then built another neural network that took these transfer-values as input and produced a CIFAR-10 class as output.
 # 
 # The CIFAR-10 data-set contains a total of 60,000 images. It took about 6 hours to calculate the transfer-values of the Inception model for all these images, using a laptop PC without a GPU. And training the new classifier on top of these transfer-values only took a few minutes. So the combined time-usage of this tranfer-learning was less than half the time it took to train a neural network directly for the CIFAR-10 data-set, and it achieved significantly higher classification accuracy.
 # 
 # So transfer-learning with the Inception model is useful for building an image classifier for your own data-set.
 
-# ## Exercises
-# 
-# These are a few suggestions for exercises that may help improve your skills with TensorFlow. It is important to get hands-on experience with TensorFlow in order to learn how to use it properly.
-# 
-# You may want to backup this Notebook and the other files before making any changes.
-# 
-# * Try using the full training-set in the PCA and t-SNE plots. What happens?
-# * Try changing the neural network for doing the new classification. What happens if you remove the fully-connected layer, or add more fully-connected layers?
-# * What happens if you perform fewer or more optimization iterations?
-# * What happens if you change the `learning_rate` for the optimizer?
-# * How would you implement random distortions to the CIFAR-10 images as was done in Tutorial #06? You can no longer use the cache because each input image is different.
-# * Try using the MNIST data-set instead of the CIFAR-10 data-set.
-# * Explain to a friend how the program works.
-
-# ## License (MIT)
-# 
-# Copyright (c) 2016 by [Magnus Erik Hvass Pedersen](http://www.hvass-labs.org/)
-# 
-# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
